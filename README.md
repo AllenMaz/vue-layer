@@ -1,11 +1,15 @@
-[![npm](https://img.shields.io/npm/dw/vue-layer.svg?style=flat-square)](https://www.npmjs.com/package/vue-layer)
-[![npm](https://img.shields.io/bundlephobia/minzip/vue-layer.svg)](https://www.npmjs.com/package/vue-layer)
-[![npm](https://img.shields.io/github/package-json/v/zuoyanart/vue-layer.svg)](https://www.npmjs.com/package/vue-layer)
-[![npm](https://img.shields.io/npm/l/vue-layer.svg)](https://www.npmjs.com/package/vue-layer)
-## vue-layer
+[![npm](https://img.shields.io/npm/dw/vue-layer.svg?style=flat-square)](https://www.npmjs.com/package/vue-layer-af)
+[![npm](https://img.shields.io/bundlephobia/minzip/vue-layer.svg)](https://www.npmjs.com/package/vue-layer-af)
+[![npm](https://img.shields.io/npm/l/vue-layer.svg)](https://www.npmjs.com/package/vue-layer-af)
+## vue-layer-af
+**为了满足其它场景需求,本组件在 [vue-layer](github.com/zuoyanart/vue-layer) 的基础上进行修改**
+---
+**修改内容见最后 更新功能 部份**
+
+
 install
 ```shell
-npm install vue-layer
+npm install vue-layer-af
 ```
       // "eslint:recommended"
 ## Quick Start
@@ -227,19 +231,5 @@ export default {
 ```
 
 
-### 样式调整
-该包的css都为vl-notice开头， 需要重写css样式，覆盖即可
-
-### 觉的作者付出的时间和精力有价值，就给作者买杯咖啡吧
- <img src="http://static.groot.zuoyanit.com/wx.jpg" width="350" height="350" />
-
- ### 入群交流
-
- <img src="http://static.groot.zuoyanit.com/wxp.jpg" width="350" height="350" />
-
-
-
-
- ### 更新日志
-
- <a href="https://github.com/zuoyanart/vue-layer/releases">更新日志</a>
+### 更新功能
+1、iframe弹窗关闭时允许在子组件中重载beforeLayerClose(layerid)方法,返回true则继续关闭流程，返回false则由组件自己控制

@@ -71,6 +71,14 @@ export default {
     },
     btncancel(event) {
       helper.btncancel(event, this.options);
+    },
+    beforeLayerClose (layerid) {
+      //关闭前通知子组件
+      let allowClose = true;
+      if(this.options.layer.instancesVue[this.options.id].iframe.beforeLayerClose){
+        allowClose = this.options.layer.instancesVue[this.options.id].iframe.beforeLayerClose(layerid);
+      }
+      return allowClose;
     }
   }
 };

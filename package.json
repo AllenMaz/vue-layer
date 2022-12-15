@@ -1,6 +1,6 @@
 {
-  "name": "vue-layer",
-  "version": "1.2.5",
+  "name": "vue-layer-af",
+  "version": "1.2.6",
   "description": "vue layer component",
   "private": false,
   "scripts": {
@@ -54,17 +54,17 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zuoyanart/vue-layer.git"
+    "url": "git+https://github.com/AllenMaz/vue-layer.git"
   },
   "keywords": [
     "vue",
     "layer",
     "vue-layer",
-    "zuoyan"
+    "allenma"
   ],
-  "author": "左盐/huabinglan@163.com",
+  "author": "嘿,猪/2727954462@qq.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zuoyanart/vue-layer/issues"
+    "url": "https://github.com/AllenMaz/vue-layer/issues"
   }
 }

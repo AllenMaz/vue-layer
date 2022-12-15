@@ -163,6 +163,9 @@ export default {
     quxiao() {
       this.fn();
       this.$layer.close(this.layerid);
+    },
+    beforeLayerClose(layerid){
+      console.log(layerid)
     }
   },
   mounted() {

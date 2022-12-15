@@ -158,8 +158,17 @@ export default {
       this.zindex = max + 2;
     },
     async close(event) {
-      await helper.btncancel(event, this.options);
-      helper.clickMaskCloseAll(event, this.options.layer, this.options.id);
+      
+      // 关闭时先调用子组件中的beforeLayerColose 方法，
+      // 通知子组件关闭事件，如果返回true，则允许关闭，否则不关闭又子组件自己处理
+      let allowClose = true;
+      if(this.$slots.default[0].context.beforeLayerClose){
+        allowClose = this.$slots.default[0].context.beforeLayerClose(this.options.id);
+      }
+      if(allowClose){
+        await helper.btncancel(event, this.options);
+        helper.clickMaskCloseAll(event, this.options.layer, this.options.id);
+      }
     },
     mini() {
       //最小化窗口
