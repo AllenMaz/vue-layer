@@ -4,8 +4,11 @@
 ## vue-layer-af
 **为了满足其它场景需求,本组件在 [vue-layer](github.com/zuoyanart/vue-layer) 的基础上进行修改**
 ---
-**修改内容见最后 更新功能 部份**
 
+
+### 更新功能
+#####1、iframe弹窗关闭时允许在子组件中重载beforeLayerClose(layerid)方法,返回true则继续关闭流程，返回false则由组件自己控制
+#####2、iframe增加slots插槽传值，允许组件定义插槽
 
 install
 ```shell
@@ -109,10 +112,22 @@ layer.iframe({
   content: {
     content: componentName, //传递的组件对象
     parent: this,//当前的vue对象
-    data:{}//props
+    data:{},//props
+    slots:{ //插槽
+      default: function (slotProps) {
+        return h('div',null,'default slot' + slotProps.tname)
+      },
+      test: function () {
+        return ['test named slot']
+      }
+    }
   },
   area:['800px','600px'],
   title: 'title'，
+  beforeLayerClose (layerid) { 
+    //弹窗关闭前拦截事件，返回false，则弹窗不关闭
+    return true;
+  },
   cancel:()=>{//关闭事件
      alert('关闭iframe');
   }
@@ -230,6 +245,3 @@ export default {
 };
 ```
 
-
-### 更新功能
-1、iframe弹窗关闭时允许在子组件中重载beforeLayerClose(layerid)方法,返回true则继续关闭流程，返回false则由组件自己控制

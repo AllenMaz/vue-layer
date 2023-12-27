@@ -233,10 +233,20 @@ export default {
       );
     },
     pageHandle() {
+      const h = this.$createElement;
+      // eslint-disable-next-line no-debugger
       const id = this.$layer.iframe({
         content: {
           content: formComp,
           parent: this,
+          slots:{
+            default: function (slotProps) {
+              return h('div',null,'default slot' + slotProps.tname)
+            },
+            test: function () {
+              return ['test named slot']
+            }
+          },
           data: {
             info: this.info,
             fn: () => {

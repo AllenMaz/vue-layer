@@ -61,6 +61,9 @@ export default {
         parent: this.options.content.parent,
         propsData: propsData
       });
+      // 在数据对象中传递 `scopedSlots`
+      // 格式为 { name: props => VNode | Array<VNode> }
+      instance.$scopedSlots =this.options.content.slots;
       instance.vm = instance.$mount();
       document.getElementById(this.id).appendChild(instance.vm.$el);
       this.options.layer.instancesVue[this.options.id].iframe = instance.vm;
@@ -75,8 +78,12 @@ export default {
     beforeLayerClose (layerid) {
       //关闭前通知子组件
       let allowClose = true;
-      if(this.options.layer.instancesVue[this.options.id].iframe.beforeLayerClose){
-        allowClose = this.options.layer.instancesVue[this.options.id].iframe.beforeLayerClose(layerid);
+      const beforeLayerCloseFun = this.options.layer.instancesVue[this.options.id].iframe.beforeLayerClose
+      if(beforeLayerCloseFun){
+        allowClose = beforeLayerCloseFun(layerid);
+        if(allowClose == undefined){
+          allowClose = true
+        }
       }
       return allowClose;
     }

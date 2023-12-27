@@ -8,6 +8,8 @@
 -->
 <template>
   <el-form ref="form" :model="form" label-width="80px" style="height:100%;">
+  <slot v-bind:tname="form.name">xxx</slot>
+  <slot name="test" v-bind:tname="form.name"></slot>
     <el-form-item label="活动名称">
       <el-input v-model="form.name"></el-input>
     </el-form-item>
